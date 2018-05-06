@@ -205,7 +205,7 @@ _when provided, the following props will be applied to both the container and th
 **maxWidth**
 **maxHeight**
 
-## UID System // TODO: briefly explain the UID system and then cross-link to uptown-dropdown/select-inject appropriately
+## UID System
 
 UIDs are Unique IDentifiers that are used to ensure accurate real-time rendering when props update.
 
