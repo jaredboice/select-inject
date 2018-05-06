@@ -38,7 +38,7 @@ const selectInjectProps = {
     orientation: 'vertical', // 'vertical' || 'vertical-reverse' || 'horizontal' || 'horizontal-reverse' || 'none'
     data: [
         {
-            uid: Symbol('my-crypto-selections'), // while updating the data array, real-time rendering can be achieved if each item-level uid is unique, and the container level uid is identical to the previous container level uid
+            uid: Symbol('my-crypto-selections'), // while updating the data array, real-time rendering can be achieved if each item-level uid is unique, and the container level uid is identical to the previous render's container-level uid
             selectable: true, // represents an item that can be selected
             disabled: false, // disables select/click events for this item
             classList: 'custom-class', // apply a custom class/classList
