@@ -199,10 +199,10 @@ SelectInject.defaultProps = {
 
 _when provided, the following props will be applied to both the container and the items. they can then be overridden with !important styles in your css_
 
-**flexBasis**
-**minWidth**
-**minHeight**
-**maxWidth**
+**flexBasis** 
+**minWidth** 
+**minHeight** 
+**maxWidth** 
 **maxHeight**
 
 ## UID System
