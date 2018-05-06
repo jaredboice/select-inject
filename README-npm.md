@@ -34,7 +34,7 @@ const selectInjectProps = {
     selectLimit: 3, // selection limit: null or negative values represent no limit
     selected: [0, 1], // define the selected index/indices - the container level uid must be different from the previous container level uid when passing selected props
     disabled: false, // disables select/click events for the entire component
-    linkStyles: true, // // applies link-appropriate styles to the header: eg. { cursor: 'pointer', userSelect: 'none'}
+    linkStyles: true, // // applies link-appropriate styles to the items: eg. { cursor: 'pointer', userSelect: 'none'}
     orientation: 'vertical', // 'vertical' || 'vertical-reverse' || 'horizontal' || 'horizontal-reverse' || 'none'
     data: [
         {
