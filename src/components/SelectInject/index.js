@@ -156,7 +156,7 @@ class SelectInject extends React.Component {
             itemClassList = `${itemClassList} __select-inject-item-enabled`;
         }
         if (classList) itemClassList = `${itemClassList} ${classList}`;
-        if (handleClick) itemClassList = `${itemClassList} __select-inject-item-handle-click`;
+        if (handleClick) itemClassList = `${itemClassList} __select-inject-item-clickable`;
 
         if (selectedIndices && selectedIndices.length > 0) {
             const match = arrayContains(index, selectedIndices);
