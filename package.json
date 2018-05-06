@@ -37,8 +37,9 @@
     "copy-packagejs-for-publish": "yes | cp -rf ./package.json ./build/package.json",
     "copy-readme-for-publish": "yes | cp -rf ./README.md ./build/README.md",
     "copy-readme-npm-for-publish": "yes | cp -rf ./README-npm.md ./build/README.md",
+    "copy-license-for-publish": "yes | cp -rf ./LICENSE.md ./build/LICENSE.md",
     "copy-npm-ignore-for-publish": "yes | cp -rf ./.npmignore ./build/.npmignore",
-    "wrap": "npm run build && npm-run-all -p copy-packagejs-for-publish copy-readme-npm-for-publish copy-npm-ignore-for-publish",
+    "wrap": "npm run build && npm-run-all -p copy-packagejs-for-publish copy-readme-npm-for-publish copy-license-for-publish copy-npm-ignore-for-publish",
     "test": "NODE_PATH=src jest --verbose --ci",
     "test:w": "NODE_PATH=src jest --verbose --watchAll",
     "test:c": "NODE_PATH=src jest --verbose --coverage"
