@@ -196,7 +196,8 @@ SelectInject.defaultProps = {
 *   `__select-inject-item-selectable` _(selectable is true)_  
 *   `__select-inject-item-clickable` _(item-level handleClick is not null)_  
 *   `__select-inject-item-disabled` _(item-level disabled is true)_  
-*   `__select-inject-item-enabled` _(item-level disabled is false)_
+*   `__select-inject-item-enabled` _(item-level disabled is false)_  
+*   `custom-class-name` _(via item-level classList)_
 
 ## Quick Starter Presets
 
