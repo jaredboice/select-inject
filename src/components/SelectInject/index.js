@@ -10,6 +10,14 @@ const HORIZONTAL = 'horizontal';
 const HORIZONTAL_REVERSE = 'horizontal-reverse';
 const NONE = 'none';
 
+const generateRandomAlphaNumSeq = (numOfChars) => {
+    const randomNum = Math.random() * (10 * numOfChars);
+    const alphaNumSeq = randomNum.toString(36); // base 36 (base 10 + 26 letters of the alphabet)
+    const startingTruncationIndex = alphaNumSeq.length - numOfChars;
+    const alphaNumSeqSliced = alphaNumSeq.slice(startingTruncationIndex);
+    return alphaNumSeqSliced;
+};
+
 const integrateArrayOfStyleObjects = (arrayOfStyleObjects, inlineStyles = {}) => {
     arrayOfStyleObjects.forEach((obj) => {
         inlineStyles = {
@@ -130,7 +138,7 @@ class SelectInject extends React.Component {
         const itemAttributes = {
             style: { ...transientItemInlineStyles },
             className: itemClassList,
-            key: `select-inject-${name}-item-${index + 1}`,
+            key: `select-inject-${name}-item-${generateRandomAlphaNumSeq(5)}-${index + 1}`,
             onClick: () => {
                 clickHandler({
                     element,
