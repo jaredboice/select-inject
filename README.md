@@ -187,8 +187,8 @@ SelectInject.defaultProps = {
 
 **container**
 
+*   `select-inject-container __select-inject-container-disabled ${name}`  
 *   `select-inject-container __select-inject-container-enabled ${name}`
-*   `select-inject-container __select-inject-container-disabled ${name}`
 
 **items**
 
