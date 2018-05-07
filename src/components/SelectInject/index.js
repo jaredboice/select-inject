@@ -128,10 +128,11 @@ class SelectInject extends React.Component {
             itemInlineStyleCollection.push({ cursor: 'not-allowed', userSelect: 'none' });
         }
         const transientItemInlineStyles = integrateArrayOfStyleObjects(itemInlineStyleCollection);
+        const renderKey = (element.uid && typeof element.uid !== 'symbol') ? element.uid : `select-inject-${name}-item-${index + 1}`;
         const itemAttributes = {
             style: { ...transientItemInlineStyles },
             className: itemClassList,
-            key: `select-inject-${name}-item-${index + 1}`,
+            key: renderKey,
             onClick: () => {
                 clickHandler({
                     element,

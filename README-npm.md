@@ -27,7 +27,7 @@ import SelectInject from 'select-inject';
 
 ```javascript
 const selectInjectProps = {
-    name: 'my-crypto-selections', // becomes the name of the css pivot class and is used in render keys
+    name: 'my-crypto-selections', // becomes the name of the css pivot class and will be used as part of a fallback render key when the item-level uid cannot be used
     uid: Symbol('my-crypto-selections'), // unique identifier: passing a unique id on each render ensures accurate real-time rendering when props update (more details in uid section in the full documentation)
     multi: true, // multi-select or single select
     multiMode: 'cycle', // multi-select modes: defines the component's behavior when selectLimit is reached - 'stop' || 'cycle'
@@ -38,7 +38,7 @@ const selectInjectProps = {
     orientation: 'vertical', // 'vertical' || 'vertical-reverse' || 'horizontal' || 'horizontal-reverse' || 'none'
     data: [
         {
-            uid: Symbol('my-crypto-selections'), // while updating the data array, real-time rendering can be achieved if each item-level uid is unique, and the container level uid is identical to the previous render's container-level uid
+            uid: Symbol('my-crypto-selections'), // while updating the data array, real-time rendering can be achieved if each item-level uid is unique, and the container level uid is identical to the previous render's container-level uid; also first in line to be used as the item render key
             selectable: true, // represents an item that can be selected
             disabled: false, // disables select/click events for this item
             classList: 'custom-class', // apply a custom class/classList
