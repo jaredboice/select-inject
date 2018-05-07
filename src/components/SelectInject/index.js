@@ -41,7 +41,7 @@ class SelectInject extends React.Component {
         });
         this.state = {
             selectedIndices: selected,
-            selectedUids,
+            selectedUids: selectedUids || [],
             selectionCount: selected.length || 0
         };
         this.renderCount = 0;
@@ -128,7 +128,8 @@ class SelectInject extends React.Component {
             itemInlineStyleCollection.push({ cursor: 'not-allowed', userSelect: 'none' });
         }
         const transientItemInlineStyles = integrateArrayOfStyleObjects(itemInlineStyleCollection);
-        const renderKey = (element.uid && typeof element.uid !== 'symbol') ? element.uid : `select-inject-${name}-item-${index + 1}`;
+        const renderKey =
+            element.uid && typeof element.uid !== 'symbol' ? element.uid : `select-inject-${name}-item-${index + 1}`;
         const itemAttributes = {
             style: { ...transientItemInlineStyles },
             className: itemClassList,
@@ -225,16 +226,64 @@ class SelectInject extends React.Component {
                     });
                 }
             }
-            if (handleClick) {
-                handleClick({ element, index, selected: selectedIndices, selectedUids });
+            let selectedParams = null;
+            let uidParams = null;
+            if (handleClick || clickHandlerContainer) {
+                const indexOfCurrentIndex = selectedIndices.indexOf(index);
+                selectedParams = [];
+                if (indexOfCurrentIndex >= 0) {
+                    const ephemeralSelectedIndices = selectedIndices.filter((selectedIndex) => {
+                        return selectedIndex !== index;
+                    });
+                    selectedParams = [...ephemeralSelectedIndices];
+                } else if (indexOfCurrentIndex < 0 && selectLimit !== selectedIndices.length) {
+                    const ephemeralSelectedIndices = [...selectedIndices];
+                    ephemeralSelectedIndices.push(index);
+                    selectedParams = [...ephemeralSelectedIndices];
+                } else if (indexOfCurrentIndex < 0 && selectLimit === selectedIndices.length) {
+                    if (multiMode === STOP) {
+                        const ephemeralSelectedIndices = [...selectedIndices];
+                        selectedParams = [...ephemeralSelectedIndices];
+                    } else {
+                        const ephemeralSelectedIndices = [...selectedIndices];
+                        ephemeralSelectedIndices.push(index);
+                        ephemeralSelectedIndices.shift();
+                        selectedParams = [...ephemeralSelectedIndices];
+                    }
+                } // TODO: test below by comparing passed uids with provided uids in parent
+                const indexOfElementUid = selectedUids.indexOf(element.uid);
+                uidParams = [];
+                if (indexOfElementUid >= 0) {
+                    const ephemeralUids = selectedUids.filter((selectedUid) => {
+                        return selectedUid != element.uid;
+                    });
+                    uidParams = [...ephemeralUids];
+                } else if (indexOfElementUid < 0 && selectLimit !== selectedUids.length) {
+                    const ephemeralUids = [...selectedUids];
+                    ephemeralUids.push(index);
+                    uidParams = [...ephemeralUids];
+                } else if (indexOfElementUid < 0 && selectLimit === selectedUids.length) {
+                    if (multiMode === STOP) {
+                        const ephemeralUids = [...selectedUids];
+                        uidParams = [...ephemeralUids];
+                    } else {
+                        const ephemeralUids = [...selectedUids];
+                        ephemeralUids.push(index);
+                        ephemeralUids.shift();
+                        uidParams = [...ephemeralUids];
+                    }
+                }
             }
-            if (clickHandlerContainer) {
-                clickHandlerContainer({ element, index, selected: selectedIndices, selectedUids });
+            if (handleClick) {
+                handleClick({ element, index, selected: [...selectedParams] || [...selectedIndices], selectedUids: [...uidParams] || [...selectedUids] });
+            }
+            if (clickHandlerContainer) { // TODO: refactor with modular approach and reuse in item-level clickhandler
+                clickHandlerContainer({ element, index, selected: [...selectedParams] || [...selectedIndices], selectedUids: [...uidParams] || [...selectedUids] });
             }
         }
     }
 
-    clickHandlerSingular({ element, index, selectedIndices, selectedUids, disabledContainer }) {
+    clickHandlerSingular({ element, index, selectedIndices, selectedUids, disabledContainer }) { // TODO: refactor with modular approach and reuse in item-level clickhandler
         const { selectable, handleClick } = element;
         const clickHandlerContainer = this.props.handleClick || null;
         if (!disabledContainer && !element.disabled) {
@@ -245,11 +294,29 @@ class SelectInject extends React.Component {
                     this.setState({ selectedIndices: [index], selectedUids: [element.uid] });
                 }
             }
-            if (handleClick) {
-                handleClick({ element, index, selected: selectedIndices, selectedUids });
+            let selectedParams = null;
+            let uidParams = null;
+            if (handleClick || clickHandlerContainer) {
+                const indexOfCurrentIndex = selectedIndices.indexOf(index);
+                selectedParams = [];
+                if (indexOfCurrentIndex >= 0) {
+                    selectedParams = [];
+                } else {
+                    selectedParams = [index];
+                }
+                const indexOfElementUid = selectedUids.indexOf(element.uid);
+                uidParams = [];
+                if (indexOfElementUid >= 0) {
+                    uidParams = [];
+                } else {
+                    uidParams = [element.uid];
+                }
             }
-            if (clickHandlerContainer) {
-                clickHandlerContainer({ element, index, selected: selectedIndices, selectedUids });
+            if (handleClick) {
+                handleClick({ element, index, selected: [...selectedParams] || [...selectedIndices], selectedUids: [...uidParams] || [...selectedUids] });
+            }
+            if (clickHandlerContainer) { // TODO: test
+                clickHandlerContainer({ element, index, selected: [...selectedParams] || [...selectedIndices], selectedUids: [...uidParams] || [...selectedUids] });
             }
         }
     }

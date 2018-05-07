@@ -44,7 +44,7 @@ const selectInjectProps = {
             classList: 'custom-class', // apply a custom class/classList
             content: <div>bitcoin</div>, // jsx || string || number
             handleClick: (params) => {
-                // item-level click handler - parameters: element, index, selected, selectedUids
+                // item-level click handler - parameters: { element, index, selected, selectedUids }
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
@@ -100,6 +100,7 @@ const selectInjectProps = {
         }
     ],
     handleClick: (params) => {
+        // container-level click handler - parameters: { element, index, selected, selectedUids }
         console.log('container-level click handler');
         console.log('selected index: ', params.index);
         console.log('selected indices: ', params.selected);
