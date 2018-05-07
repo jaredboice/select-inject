@@ -83,7 +83,8 @@ class SelectInject extends React.Component {
                 let setState = false;
                 this.state.selectedUids.forEach((uid) => {
                     nextPropsData.forEach((element, elementIndex) => {
-                        if (uid == element.uid) { // eslint-disable-line eqeqeq
+                        if (uid == element.uid) {
+                            // eslint-disable-line eqeqeq
                             newSelectedIndices.push(elementIndex);
                             newSelectedUids.push(uid);
                             setState = true;
@@ -150,14 +151,13 @@ class SelectInject extends React.Component {
     buildItemClassList({ index, selectable, disabled, classList, handleClick, selectedIndices }) {
         let itemClassList = '';
         if (selectable) itemClassList = `${itemClassList} __select-inject-item-selectable`;
+        if (handleClick) itemClassList = `${itemClassList} __select-inject-item-clickable`;
         if (disabled) {
             itemClassList = `${itemClassList} __select-inject-item-disabled`;
         } else {
             itemClassList = `${itemClassList} __select-inject-item-enabled`;
         }
         if (classList) itemClassList = `${itemClassList} ${classList}`;
-        if (handleClick) itemClassList = `${itemClassList} __select-inject-item-handle-click`;
-
         if (selectedIndices && selectedIndices.length > 0) {
             const match = arrayContains(index, selectedIndices);
             if (match) itemClassList = `${itemClassList} __select-inject-item-selected`;
@@ -196,18 +196,18 @@ class SelectInject extends React.Component {
                     transientSelectedIndices = [...selectedIndices];
                     transientSelectedUids = [...selectedUids];
                     switch (multiMode) {
-                    case STOP:
-                        addSelected = false;
-                        break;
-                    case CYCLE:
-                        addSelected = true;
-                        transientSelectedIndices.push(index);
-                        transientSelectedIndices.shift();
-                        transientSelectedUids.push(element.uid || null);
-                        transientSelectedUids.shift();
-                        break;
-                    default:
-                        break;
+                        case STOP:
+                            addSelected = false;
+                            break;
+                        case CYCLE:
+                            addSelected = true;
+                            transientSelectedIndices.push(index);
+                            transientSelectedIndices.shift();
+                            transientSelectedUids.push(element.uid || null);
+                            transientSelectedUids.shift();
+                            break;
+                        default:
+                            break;
                     }
                 } else {
                     addSelected = true;
@@ -300,7 +300,20 @@ class SelectInject extends React.Component {
 
     render() {
         this.renderCount++;
-        const { name, multi, multiMode, selectLimit, disabled, flexBasis, minWidth, minHeight, maxWidth, maxHeight, orientation, data } = this.props;
+        const {
+            name,
+            multi,
+            multiMode,
+            selectLimit,
+            disabled,
+            flexBasis,
+            minWidth,
+            minHeight,
+            maxWidth,
+            maxHeight,
+            orientation,
+            data
+        } = this.props;
         const { selectedIndices, selectedUids, selectionCount } = this.state;
         const containerClassList = !disabled
             ? `select-inject-container __select-inject-container-enabled ${name}`
@@ -308,78 +321,78 @@ class SelectInject extends React.Component {
         const containerInlineStyleCollection = [];
         const itemInlineStyleCollection = [];
         switch (orientation) {
-        case VERTICAL:
-            containerInlineStyleCollection.push({
-                display: 'flex',
-                flexDirection: 'column'
-            });
-            break;
-        case VERTICAL_REVERSE:
-            containerInlineStyleCollection.push({
-                display: 'flex',
-                flexDirection: 'column'
-            });
-            break;
-        case HORIZONTAL:
-            containerInlineStyleCollection.push({
-                display: 'flex',
-                flexDirection: 'row'
-            });
-            break;
-        case HORIZONTAL_REVERSE:
-            containerInlineStyleCollection.push({
-                display: 'flex',
-                flexDirection: 'row'
-            });
-            break;
-        case NONE:
-            containerInlineStyleCollection.push({});
-            break;
-        default:
-            containerInlineStyleCollection.push({});
-            break;
+            case VERTICAL:
+                containerInlineStyleCollection.push({
+                    display: 'flex',
+                    flexDirection: 'column'
+                });
+                break;
+            case VERTICAL_REVERSE:
+                containerInlineStyleCollection.push({
+                    display: 'flex',
+                    flexDirection: 'column'
+                });
+                break;
+            case HORIZONTAL:
+                containerInlineStyleCollection.push({
+                    display: 'flex',
+                    flexDirection: 'row'
+                });
+                break;
+            case HORIZONTAL_REVERSE:
+                containerInlineStyleCollection.push({
+                    display: 'flex',
+                    flexDirection: 'row'
+                });
+                break;
+            case NONE:
+                containerInlineStyleCollection.push({});
+                break;
+            default:
+                containerInlineStyleCollection.push({});
+                break;
         }
         if (flexBasis) {
-            containerInlineStyleCollection.push({ flexBasis: `${flexBasis}`});
+            containerInlineStyleCollection.push({ flexBasis: `${flexBasis}` });
             itemInlineStyleCollection.push({ flexBasis: `${flexBasis}` });
         }
         if (minWidth) {
-            containerInlineStyleCollection.push({ minWidth: `${minWidth}`});
+            containerInlineStyleCollection.push({ minWidth: `${minWidth}` });
             itemInlineStyleCollection.push({ minWidth: `${minWidth}` });
         }
         if (minHeight) {
-            containerInlineStyleCollection.push({ minHeight: `${minHeight}`});
+            containerInlineStyleCollection.push({ minHeight: `${minHeight}` });
             itemInlineStyleCollection.push({ minHeight: `${minHeight}` });
         }
         if (maxWidth) {
-            containerInlineStyleCollection.push({ maxWidth: `${maxWidth}`});
+            containerInlineStyleCollection.push({ maxWidth: `${maxWidth}` });
             itemInlineStyleCollection.push({ maxWidth: `${maxWidth}` });
         }
         if (maxHeight) {
-            containerInlineStyleCollection.push({ maxHeight: `${maxHeight}`});
+            containerInlineStyleCollection.push({ maxHeight: `${maxHeight}` });
             itemInlineStyleCollection.push({ maxHeight: `${maxHeight}` });
         }
         const containerInlineStyles = integrateArrayOfStyleObjects(containerInlineStyleCollection);
         const parameterPackage = multi
             ? {
-                name,
-                selectedIndices,
-                selectedUids,
-                disabled,
-                clickHandler: this.clickHandlerMulti,
-                itemInlineStyleCollection,
-                selectionCount,
-                selectLimit,
-                multiMode
-            }
+                  name,
+                  selectedIndices,
+                  selectedUids,
+                  disabled,
+                  clickHandler: this.clickHandlerMulti,
+                  itemInlineStyleCollection,
+                  selectionCount,
+                  selectLimit,
+                  multiMode
+              }
             : {
-                name,
-                selectedIndices,
-                selectedUids,
-                disabled,
-                clickHandler: this.clickHandlerSingular,
-                itemInlineStyleCollection
-            };
+                  name,
+                  selectedIndices,
+                  selectedUids,
+                  disabled,
+                  clickHandler: this.clickHandlerSingular,
+                  itemInlineStyleCollection
+              };
         const dataPackage = () => {
             if (orientation === VERTICAL || orientation === HORIZONTAL || orientation === NONE) {
                 return data.map((element, index) => {
