@@ -138,7 +138,7 @@ class SelectInject extends React.Component {
         const itemAttributes = {
             style: { ...transientItemInlineStyles },
             className: itemClassList,
-            key: `select-inject-${name}-item-${generateRandomAlphaNumSeq(5)}-${index + 1}`,
+            key: `select-inject-${name}-item-${index + 1}`,
             onClick: () => {
                 clickHandler({
                     element,
