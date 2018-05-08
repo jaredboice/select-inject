@@ -390,11 +390,6 @@ class SelectInject extends React.Component {
         const itemInlineStyleCollection = [];
         switch (orientation) {
             case VERTICAL:
-                containerInlineStyleCollection.push({
-                    display: 'flex',
-                    flexDirection: 'column'
-                });
-                break;
             case VERTICAL_REVERSE:
                 containerInlineStyleCollection.push({
                     display: 'flex',
@@ -402,11 +397,6 @@ class SelectInject extends React.Component {
                 });
                 break;
             case HORIZONTAL:
-                containerInlineStyleCollection.push({
-                    display: 'flex',
-                    flexDirection: 'row'
-                });
-                break;
             case HORIZONTAL_REVERSE:
                 containerInlineStyleCollection.push({
                     display: 'flex',
@@ -475,11 +465,7 @@ class SelectInject extends React.Component {
         };
         return (
             <section className={containerClassList} style={{ ...containerInlineStyles }}>
-                {multi && dataPackage()}
-                {!multi &&
-                    data.map((element, index) => {
-                        return this.renderItem({ ...parameterPackage, element, index });
-                    })}
+                {dataPackage()}
             </section>
         );
     }
