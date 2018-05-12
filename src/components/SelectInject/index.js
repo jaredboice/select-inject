@@ -437,7 +437,7 @@ class SelectInject extends React.Component {
                   name,
                   selectedIndices,
                   selectedUids,
-                  disabled,
+                  disabledContainer: disabled,
                   clickHandler: this.clickHandlerMulti,
                   itemInlineStyleCollection,
                   selectionCount,
@@ -448,7 +448,7 @@ class SelectInject extends React.Component {
                   name,
                   selectedIndices,
                   selectedUids,
-                  disabled,
+                  disabledContainer: disabled,
                   clickHandler: this.clickHandlerSingular,
                   itemInlineStyleCollection
               };
