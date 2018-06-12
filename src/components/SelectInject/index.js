@@ -48,11 +48,8 @@ class SelectInject extends React.Component {
         this.clickHandlerSingular = this.clickHandlerSingular.bind(this);
         this.clickHandlerMulti = this.clickHandlerMulti.bind(this);
     }
-    componentWillMount() {}
 
-    componentDidMount() {}
-
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (this.renderCount > 0) {
             const { uid, data } = this.props;
             const nextPropsUid = nextProps.uid;

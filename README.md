@@ -4,6 +4,8 @@
 
 ![Select-Inject](screenshots/select-inject-logo.png 'select-inject')
 
+## Donations - Bitcoin: 19XgiRojJnv9VDhyW9HmF6oKQeVc7k9McU (use this address until 2020)
+
 ## Description
 
 **Select-Inject** is a fully customizable _react_ _multi-select_ system that can be used independently or injected into an expander/drawer/dropdown that accepts standalone components, such as uptown-dropdown. It offers adjustable orientation, applied css class names for each state of the component, switches for disabling the component at both the item and container level, selection limits, and both item-level and container-level click handler callbacks that accept an object of parameters: element, index (selected index), selected (all currently selected indices), and selectedUids.
