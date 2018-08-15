@@ -188,10 +188,10 @@ SelectInject.defaultProps = {
 
 ## CSS ClassNames Applied by State
 
-**container**
+**container class list**
 
-*   `select-inject-container __select-inject-container-disabled ${name}` _(container-level disabled is true)_  
-*   `select-inject-container __select-inject-container-enabled ${name}` _(container-level disabled is false)_
+*   `select-inject-container select-inject-container-disabled ${name}` _(container-level disabled is true)_  
+*   `select-inject-container select-inject-container-enabled ${name}` _(container-level disabled is false)_
 
 **items**
 

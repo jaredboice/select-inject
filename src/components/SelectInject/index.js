@@ -382,8 +382,8 @@ class SelectInject extends React.Component {
         } = this.props;
         const { selectedIndices, selectedUids, selectionCount } = this.state;
         const containerClassList = !disabled
-            ? `select-inject-container __select-inject-container-enabled ${name}`
-            : `select-inject-container __select-inject-container-disabled ${name}`;
+            ? `select-inject-container select-inject-container-enabled __select-inject-container-enabled ${name}`
+            : `select-inject-container select-inject-container-disabled __select-inject-container-disabled ${name}`;
         const containerInlineStyleCollection = [];
         const itemInlineStyleCollection = [];
         switch (orientation) {
