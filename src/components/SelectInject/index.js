@@ -159,7 +159,11 @@ class SelectInject extends React.Component {
         if (classList) itemClassList = `${itemClassList} ${classList}`;
         if (selectedIndices && selectedIndices.length > 0) {
             const match = arrayContains(index, selectedIndices);
-            if (match) itemClassList = `${itemClassList} __select-inject-item-selected`;
+            if (match) {
+                itemClassList = `${itemClassList} __select-inject-item-selected`;
+            } else {
+                itemClassList = `${itemClassList} __select-inject-item-not-selected`;
+            }
         }
         return itemClassList;
     }
