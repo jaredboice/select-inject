@@ -198,6 +198,8 @@ SelectInject.defaultProps = {
 *   `__select-inject-item-any` _(any item)_
 *   `__select-inject-item-selected` _(item is selected)_
 *   `__select-inject-item-not-selected` _(item is NOT selected)_
+*   `__select-inject-item-passive` _(item-level handleClick is null and selectable is not true)_
+*   `__select-inject-item-interactive` _(item-level handleClick is not null or selectable is true)_
 *   `__select-inject-item-selectable` _(selectable is true)_  
 *   `__select-inject-item-clickable` _(item-level handleClick is not null)_  
 *   `__select-inject-item-disabled` _(item-level disabled is true)_  

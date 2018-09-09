@@ -149,6 +149,8 @@ class SelectInject extends React.Component {
 
     buildItemClassList({ index, selectable, disabled, classList, handleClick, selectedIndices }) {
         let itemClassList = '__select-inject-item-any';
+        if (!selectable && !handleClick) itemClassList = `${itemClassList} __select-inject-item-passive`;
+        if (selectable || handleClick) itemClassList = `${itemClassList} __select-inject-item-interactive`;
         if (selectable) itemClassList = `${itemClassList} __select-inject-item-selectable`;
         if (handleClick) itemClassList = `${itemClassList} __select-inject-item-clickable`;
         if (disabled) {
