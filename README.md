@@ -195,6 +195,7 @@ SelectInject.defaultProps = {
 
 **items**
 
+*   `__select-inject-item-any` _(any item)_
 *   `__select-inject-item-selected` _(item is selected)_
 *   `__select-inject-item-not-selected` _(item is NOT selected)_
 *   `__select-inject-item-selectable` _(selectable is true)_  
