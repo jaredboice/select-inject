@@ -50,6 +50,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -62,6 +64,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -74,6 +78,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -86,6 +92,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -98,14 +106,17 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         }
     ],
     handleClick: (params) => {
         // container-level click handler - parameters: { element, index, selected, selectedUids }
         console.log('container-level click handler');
-        console.log('selected index: ', params.index);
         console.log('selected indices: ', params.selected);
+        console.log('selected uids: ', params.selectedUids); // if needed
+        console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
     }
 };
 ```

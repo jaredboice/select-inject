@@ -50,6 +50,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -62,6 +64,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -74,6 +78,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -86,6 +92,8 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         },
         {
@@ -98,14 +106,17 @@ const selectInjectProps = {
                 console.log('item-level click handler');
                 console.log('selected index: ', params.index);
                 console.log('selected indices: ', params.selected);
+                console.log('selected uids: ', params.selectedUids); // if needed
+                console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
             }
         }
     ],
     handleClick: (params) => {
         // container-level click handler - parameters: { element, index, selected, selectedUids }
         console.log('container-level click handler');
-        console.log('selected index: ', params.index);
         console.log('selected indices: ', params.selected);
+        console.log('selected uids: ', params.selectedUids); // if needed
+        console.log('selection count: ', params.selectionCount); // always 1 for non-multi mode
     }
 };
 ```
@@ -195,15 +206,15 @@ SelectInject.defaultProps = {
 
 **items**
 
-*   `__select-inject-item-any` _(any item)_
-*   `__select-inject-item-selected` _(item is selected)_
-*   `__select-inject-item-not-selected` _(item is NOT selected)_
-*   `__select-inject-item-passive` _(item-level handleClick is null and selectable is not true)_
-*   `__select-inject-item-interactive` _(item-level handleClick is not null or selectable is true)_
-*   `__select-inject-item-selectable` _(selectable is true)_  
-*   `__select-inject-item-clickable` _(item-level handleClick is not null)_  
-*   `__select-inject-item-disabled` _(item-level disabled is true)_  
-*   `__select-inject-item-enabled` _(item-level disabled is false)_  
+*   `select-inject-item-any` _(any item)_
+*   `select-inject-item-selected` _(item is selected)_
+*   `select-inject-item-not-selected` _(item is NOT selected)_
+*   `select-inject-item-passive` _(item-level handleClick is null and selectable is not true)_
+*   `select-inject-item-interactive` _(item-level handleClick is not null or selectable is true)_
+*   `select-inject-item-selectable` _(selectable is true)_  
+*   `select-inject-item-clickable` _(item-level handleClick is not null)_  
+*   `select-inject-item-disabled` _(item-level disabled is true)_  
+*   `select-inject-item-enabled` _(item-level disabled is false)_  
 *   `custom-class-name` _(via item-level classList)_
 
 ## Quick Starter Presets
