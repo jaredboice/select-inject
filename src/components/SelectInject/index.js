@@ -126,7 +126,7 @@ class SelectInject extends React.Component {
         }
         const transientItemInlineStyles = integrateArrayOfStyleObjects(itemInlineStyleCollection);
         const renderKey =
-            element.uid && typeof element.uid !== 'symbol' ? element.uid : `select-inject-${name}-item-${index + 1}`;
+            element.uid && typeof element.uid !== 'symbol' ? `${element.uid}-${index + 1}` : `select-inject-${name}-item-${index + 1}`;
         const itemAttributes = {
             style: { ...transientItemInlineStyles },
             className: itemClassList,
