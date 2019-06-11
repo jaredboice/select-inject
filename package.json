@@ -5,7 +5,7 @@
         "email": "jaredboice@gmail.com"
     },
     "description": "a fully customizable react multi-select system that can be used independently or injected into an expander/drawer/dropdown that accepts standalone components, such as uptown-dropdown",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -46,8 +46,8 @@
     },
     "dependencies": {
         "@babel/runtime": "~7.4.5",
-        "prop-types": "^15.6.1",
-        "react": "^16.3.2"
+        "prop-types": "~15.6.1",
+        "react": "~16.3.2"
     },
     "devDependencies": {
         "@babel/cli": "~7.4.4",
