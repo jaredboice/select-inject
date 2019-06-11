@@ -1,66 +1,72 @@
 {
-  "name": "select-inject",
-  "author": {
-    "name": "jared boice",
-    "email": "jaredboice@gmail.com"
-  },
-  "description": "a fully customizable react multi-select system that can be used independently or injected into an expander/drawer/dropdown that accepts standalone components, such as uptown-dropdown",
-  "version": "2.0.2",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jaredboice/select-inject.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jaredboice/select-inject.git"
-  },
-  "homepage": "https://github.com/jaredboice/select-inject.git",
-  "keywords": [
-    "select inject",
-    "select-inject",
-    "multi-select",
-    "multiselect",
-    "multi select",
-    "react select",
-    "react multiselect",
-    "react multi-select",
-    "uptown dropdown",
-    "uptown-dropdown",
-    "jared boice"
-  ],
-  "main": "index.js",
-  "scripts": {
-    "clean": "rm -rf build",
-    "lint": "eslint '**/*.{js,jsx}' --quiet",
-    "build-js": "babel src -d build --copy-files",
-    "build": "npm run clean && npm run build-js",
-    "copy-packagejs-for-publish": "yes | cp -rf ./package.json ./build/package.json",
-    "copy-readme-for-publish": "yes | cp -rf ./README.md ./build/README.md",
-    "copy-readme-npm-for-publish": "yes | cp -rf ./README-npm.md ./build/README.md",
-    "copy-license-for-publish": "yes | cp -rf ./LICENSE.md ./build/LICENSE.md",
-    "copy-npm-ignore-for-publish": "yes | cp -rf ./.npmignore ./build/.npmignore",
-    "wrap": "npm run build && npm-run-all -p copy-packagejs-for-publish copy-readme-npm-for-publish copy-license-for-publish copy-npm-ignore-for-publish",
-    "test": "NODE_PATH=src jest --verbose --ci",
-    "test:w": "NODE_PATH=src jest --verbose --watchAll",
-    "test:c": "NODE_PATH=src jest --verbose --coverage"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.0.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-react": "^7.7.0",
-    "jest": "^22.4.3",
-    "npm-run-all": "^4.1.2"
-  }
+    "name": "select-inject",
+    "author": {
+        "name": "jared boice",
+        "email": "jaredboice@gmail.com"
+    },
+    "description": "a fully customizable react multi-select system that can be used independently or injected into an expander/drawer/dropdown that accepts standalone components, such as uptown-dropdown",
+    "version": "2.1.0",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jaredboice/select-inject.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jaredboice/select-inject.git"
+    },
+    "homepage": "https://github.com/jaredboice/select-inject.git",
+    "keywords": [
+        "select inject",
+        "select-inject",
+        "multi-select",
+        "multiselect",
+        "multi select",
+        "react select",
+        "react multiselect",
+        "react multi-select",
+        "uptown dropdown",
+        "uptown-dropdown",
+        "jared boice"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "clean": "rm -rf build",
+        "lint": "eslint '**/*.{js,jsx}' --quiet",
+        "build-js": "babel src -d build --copy-files",
+        "build": "npm run clean && npm run build-js",
+        "copy-packagejs-for-publish": "yes | cp -rf ./package.json ./build/package.json",
+        "copy-readme-for-publish": "yes | cp -rf ./README.md ./build/README.md",
+        "copy-readme-npm-for-publish": "yes | cp -rf ./README-npm.md ./build/README.md",
+        "copy-license-for-publish": "yes | cp -rf ./LICENSE.md ./build/LICENSE.md",
+        "copy-npm-ignore-for-publish": "yes | cp -rf ./.npmignore ./build/.npmignore",
+        "wrap": "npm run build && npm-run-all -p copy-packagejs-for-publish copy-readme-npm-for-publish copy-license-for-publish copy-npm-ignore-for-publish",
+        "test": "NODE_PATH=src jest --verbose --ci",
+        "test:w": "NODE_PATH=src jest --verbose --watchAll",
+        "test:c": "NODE_PATH=src jest --verbose --coverage"
+    },
+    "dependencies": {
+        "@babel/runtime": "~7.4.5",
+        "prop-types": "^15.6.1",
+        "react": "^16.3.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "~7.4.4",
+        "@babel/core": "~7.4.5",
+        "@babel/plugin-transform-runtime": "~7.4.4",
+        "@babel/preset-env": "~7.4.5",
+        "@babel/preset-react": "~7.0.0",
+        "eslint": "~5.16.0",
+        "eslint-config-airbnb": "~16.1.0",
+        "eslint-plugin-import": "~2.11.0",
+        "eslint-plugin-react": "~7.7.0",
+        "jest": "~22.4.3",
+        "npm-run-all": "~4.1.2"
+    },
+    "jest": {
+        "verbose": true,
+        "collectCoverageFrom": [
+            "src/**/*.js"
+        ],
+        "testURL": "http://localhost/"
+    }
 }
