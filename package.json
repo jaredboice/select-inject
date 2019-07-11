@@ -5,7 +5,7 @@
         "email": "jaredboice@gmail.com"
     },
     "description": "a fully customizable react multi-select system that can be used independently or injected into an expander/drawer/dropdown that accepts standalone components, such as uptown-dropdown",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -45,22 +45,22 @@
         "test:c": "NODE_PATH=src jest --verbose --coverage"
     },
     "dependencies": {
-        "@babel/runtime": "~7.4.5",
-        "prop-types": "~15.6.1",
-        "react": "~16.3.2"
+        "@babel/runtime": "^7.5.4",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6"
     },
     "devDependencies": {
-        "@babel/cli": "~7.4.4",
-        "@babel/core": "~7.4.5",
-        "@babel/plugin-transform-runtime": "~7.4.4",
-        "@babel/preset-env": "~7.4.5",
-        "@babel/preset-react": "~7.0.0",
-        "eslint": "~5.16.0",
-        "eslint-config-airbnb": "~16.1.0",
-        "eslint-plugin-import": "~2.11.0",
-        "eslint-plugin-react": "~7.7.0",
-        "jest": "~22.4.3",
-        "npm-run-all": "~4.1.2"
+        "@babel/cli": "^7.5.0",
+        "@babel/core": "^7.4.5",
+        "@babel/plugin-transform-runtime": "^7.5.0",
+        "@babel/preset-env": "^7.4.5",
+        "@babel/preset-react": "^7.0.0",
+        "eslint": "^6.0.1",
+        "eslint-config-airbnb": "^17.1.1",
+        "eslint-plugin-import": "^2.18.0",
+        "eslint-plugin-react": "^7.14.2",
+        "jest": "^24.8.0",
+        "npm-run-all": "^4.1.5"
     },
     "jest": {
         "verbose": true,
