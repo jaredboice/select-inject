@@ -4,7 +4,10 @@
 
 get the [full documentation](https://github.com/jaredboice/select-inject) at gitHub.
 
-## Donations - Bitcoin: 19XgiRojJnv9VDhyW9HmF6oKQeVc7k9McU (use this address until 2020)
+![Select-Inject](screenshots/select-inject-logo.png 'select-inject')
+
+## Donations - Bitcoin: 19XgiRojJnv9VDhyW9HmF6oKQeVc7k9McU 
+(use this address until 2022)
 
 ## Description
 
